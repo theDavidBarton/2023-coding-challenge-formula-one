@@ -1,0 +1,14 @@
+# in case the task can be uploaded to git
+# images
+*.png
+*.jpg
+*.svg
+
+# folders
+flags/
+identified/
+not_identified/
+
+# output files
+data.json
+stat.txt
