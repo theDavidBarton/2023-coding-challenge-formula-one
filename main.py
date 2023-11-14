@@ -164,6 +164,7 @@ def images_function():
 # 🏒 JSON file
 def json_create_function():
     print('# David Barton (theDavidBarton@AOL.com) © 2023\n# Test Automation Engineer coding challenge - Formula One\n\n[init script...]')
+    
     print('* teams being collected...')
     teams = teams_function()
     print('* drivers being collected (slower)...')
@@ -172,12 +173,14 @@ def json_create_function():
     flag_rules = flag_rules_function()
     print('* images being collected & downloaded (slower)...')
     images = images_function()
+    
     data = {
         'teams' : teams,
         'drivers' : drivers,
         'flag_rules' : flag_rules,
         'images' : images,
     }
+
     print('* json file being created...')
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
@@ -189,7 +192,6 @@ def json_create_function():
 def stats_function(data):
     # statistics calculations
     # the function also executes the bash or batch script to generate stats.txt
-    print('* stats & txt file being created...')
     resolutions_calculated = []
     resolutions_list = []
     sizes = []
@@ -197,25 +199,29 @@ def stats_function(data):
     number_of_identified_images = 0
     number_of_not_identified_images = 0
     for img in data['images']:
-        # two same length resolutions arrays
+        # two same-length arrays populated with resolutions
+        # so later the script can match the original resolution
+        # with the calculated (multiplied) value
         resolutions_calculated.append(int(img['resolution'].split('x')[0]) * int(img['resolution'].split('x')[1]))
         resolutions_list.append(img['resolution'])
-        # all sizes into a single array
+        # an array is populated with all of the image sizes
         sizes.append(int(img['image_size']))
+
         # count identified/not identified images
         if 'not_identified' in img['image']:
             number_of_not_identified_images += 1
         else: 
-            number_of_identified_images += 1 
+            number_of_identified_images += 1
 
     number_of_drivers_in_the_championship = len(data['drivers'])
     number_of_engine_suppliers = len(data['teams'][0]['engines'])
-    number_of_images = len(data['images'])       
+    number_of_images = len(data['images'])
     size_of_all_images = sum(sizes) * 0.001
     average_size_of_images = sum(sizes)/len(sizes) * 0.001
     # calculate resolutions
     highest_resolution_raw = max(resolutions_calculated)
-    lowest_resolution_raw = min(resolutions_calculated)    
+    lowest_resolution_raw = min(resolutions_calculated)
+
     highest_resolution = resolutions_list[resolutions_calculated.index(highest_resolution_raw)]
     lowest_resolution = resolutions_list[resolutions_calculated.index(lowest_resolution_raw)]
 
@@ -254,4 +260,5 @@ def stats_function(data):
 
 # generate data JSON and stat text file
 data = json_create_function()
+print('* stats & txt file being created...')
 stats_function(data)

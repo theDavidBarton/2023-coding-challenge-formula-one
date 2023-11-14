@@ -78,6 +78,11 @@ Files & folders created by the script:
 ```
 
 
+## GitHub Actions
+
+The script can be also run with workflow dispatch (manual trigger) from GitHub Actions, the YAML is called "run-test". It runs on Ubuntu 20.04 and Microsoft Windows Server 2022 (10.0.20348 which resembles Windows 10 environment). 
+
+
 ## Disclaimer
 
 The data collected by this script is based on the state of Wikipedia as of November 13, 2023. Please note that Wikipedia is edited by an open community, and the collected information may include factual mistakes or inconsistencies. Users are advised to verify information independently for the most accurate and reliable details.
