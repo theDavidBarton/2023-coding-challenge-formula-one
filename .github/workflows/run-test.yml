@@ -18,5 +18,8 @@ jobs:
           python-version: '3.12.0'
       - name: install dependencies
         run: pip install -r requirements.txt
+      - name: chmod +x
+        if: runner.os == 'Linux'
+        run: chmod +x generate_stat.sh
       - name: run script
         run: python main.py
