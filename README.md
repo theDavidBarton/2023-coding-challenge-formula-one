@@ -1,4 +1,4 @@
-# Test Automation Engineer (aiSim) homework - Formula One
+# Test Automation Engineer (аіЅіⅿ) coding challenge - Formula One
 
 A python script to parse and crawl Wikipedia for Formula One-related data using [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/) and [Requests](https://requests.readthedocs.io/en/latest/) libraries.
 
@@ -37,7 +37,7 @@ It will also call `generate_stat.sh` or `generate_stat.bat` during execution bas
 Terminal output:
 ```
 # David Barton (theDavidBarton@AOL.com) © 2023
-# Test Automation Engineer (aiSim) homework - Formula One
+# Test Automation Engineer coding challenge - Formula One
 
 [init script...]
 * teams being collected...

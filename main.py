@@ -1,5 +1,5 @@
 # David Barton (theDavidBarton@AOL.com) © 2023
-# Test Automation Engineer (aiSim) homework - Formula One
+# Test Automation Engineer coding challenge - Formula One
 import json
 import os
 import re
@@ -163,7 +163,7 @@ def images_function():
 
 # 🏒 JSON file
 def json_create_function():
-    print('# David Barton (theDavidBarton@AOL.com) © 2023\n# Test Automation Engineer (aiSim) homework - Formula One\n\n[init script...]')
+    print('# David Barton (theDavidBarton@AOL.com) © 2023\n# Test Automation Engineer coding challenge - Formula One\n\n[init script...]')
     print('* teams being collected...')
     teams = teams_function()
     print('* drivers being collected (slower)...')
