@@ -23,3 +23,9 @@ jobs:
         run: chmod +x generate_stat.sh
       - name: run script
         run: python main.py
+      - name: check generated files (Linux)
+        if: runner.os == 'Linux'
+        run: ls
+      - name: check generated files (Windows)
+        if: runner.os == 'Windows'
+        run: dir
