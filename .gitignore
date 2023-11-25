@@ -1,9 +1,4 @@
 # in case the task can be uploaded to git
-# images
-*.png
-*.jpg
-*.svg
-
 # folders
 flags/
 identified/
