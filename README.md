@@ -2,6 +2,8 @@
 
 A python script to parse and crawl Wikipedia for Formula One-related data using [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/) and [Requests](https://requests.readthedocs.io/en/latest/) libraries.
 
+Graph generated with [Plotly](https://plotly.com/python/) library.
+
 
 ## Environment
 
@@ -83,6 +85,18 @@ Files & folders created by the script:
 The script can be also run with workflow dispatch (manual trigger) from GitHub Actions, the YAML is called "run-test". It runs on Ubuntu 20.04 and Microsoft Windows Server 2022 (10.0.20348 which resembles Windows 10 environment). 
 
 
+## + Plotly graph
+
+Run on terminal:
+```
+python driver_number_graph.py
+```
+
+It will render a `tmp.html` file that automatically opens in the default browser if run locally from where the graph can be downloaded as a PNG image.
+
+![Graph saved as PNG](newplot.png)
+
+
 ## Disclaimer
 
 The data collected by this script is based on the state of Wikipedia as of November 13, 2023. Please note that Wikipedia is edited by an open community, and the collected information may include factual mistakes or inconsistencies. Users are advised to verify information independently for the most accurate and reliable details.
@@ -94,6 +108,7 @@ The data collected by this script is based on the state of Wikipedia as of Novem
 - Requests: https://requests.readthedocs.io/en/latest/
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 - Using urllib.request to write an image (Stack Overflow): https://stackoverflow.com/a/65143739/12412595
+- Convert a Nested List into a Flat List in Python (SparkByExamples): https://sparkbyexamples.com/python/convert-a-nested-list-into-a-flat-list-in-python
 
 
 ## Author

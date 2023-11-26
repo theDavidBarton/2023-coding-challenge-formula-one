@@ -67,7 +67,7 @@ def drivers_function():
             if re.search('Csapata', str(dr_row)):
                 return dr_row.find_all('a')[1].text.strip()
 
-    def check_incative_period(last_column):
+    def check_inactive_period(last_column):
         # last character should be a '–' if the number is currently active, e.g.:
         # 1. Sebastian Vettel 2011–2014 [inactive]
         # 1. Max Verstappen 2022– [active]
@@ -80,7 +80,7 @@ def drivers_function():
             driver_number = columns[0].text.strip()
             driver_name = columns[2].text.strip()
             driver_team = scrape_driver_team(columns[2].a.get('href'))
-            if check_incative_period(columns[-1].text.strip()):
+            if check_inactive_period(columns[-1].text.strip()):
                 continue
             filter_for_identified_images.append(driver_name)
             drivers.append({ 'driver_name' : driver_name , 'driver_number' : driver_number,'driver_team' : driver_team })
@@ -88,7 +88,7 @@ def drivers_function():
             # driver_number remains the previous value to handle spanrow=2
             driver_name = columns[1].text.strip()
             driver_team = scrape_driver_team(columns[1].a.get('href'))
-            if check_incative_period(columns[-1].text.strip()):
+            if check_inactive_period(columns[-1].text.strip()):
                 continue
             filter_for_identified_images.append(driver_name)
             drivers.append({ 'driver_name' : driver_name , 'driver_number' : driver_number,'driver_team' : driver_team })
@@ -96,7 +96,7 @@ def drivers_function():
             # driver_number remains the previous value to handle spanrow=2
             driver_name = columns[0].text.strip()
             driver_team = scrape_driver_team(columns[0].a.get('href'))
-            if check_incative_period(columns[-1].text.strip()):
+            if check_inactive_period(columns[-1].text.strip()):
                 continue
             filter_for_identified_images.append(driver_name)
             drivers.append({ 'driver_name' : driver_name , 'driver_number' : driver_number,'driver_team' : driver_team })
@@ -107,7 +107,7 @@ def drivers_function():
 # 🏁 flag_rules
 def flag_rules_function():
     # collect the flag rules from the responsible table
-    # as an extra a flag name is also cleaned from the image URL
+    # as an extra: a flag name is also cleaned from the image URL
     flags = []
     for flag_row in flag_rules_table.find_all('tr'):
         columns = flag_row.find_all('td')
