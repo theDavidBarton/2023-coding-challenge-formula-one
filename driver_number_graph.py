@@ -64,7 +64,8 @@ def numbers_with_years_function():
                 # also we concat the previous year list with the new one to group by driver number
                 new_years = retrieve_years_from_interval(
                     columns[-1].text.strip())
-                years = years + new_years
+                years = years + new_years                
+                years = list(dict.fromkeys(years)) # remove possible duplicates
                 years.sort()
                 numbers_with_years[driver_number] = years
                 if len(columns) == 3:
@@ -87,7 +88,11 @@ def draw_graph_function(data):
     number_of_years = [len(data[key]) for key in driver_numbers]
 
     fig = go.Figure(data=[go.Bar(
-        x=number_of_years, y=driver_numbers, orientation='h', marker={'color': 'red'})])
+        x=number_of_years,
+        y=driver_numbers,
+        orientation='h',
+        marker={'color': number_of_years, 'colorscale': 'Turbo', 'colorbar': {'title' : 'Number of Years'}}
+    )])
     fig.update_layout(
         title='🏎️ Driver numbers & number of years in use',
         xaxis={'title': 'Number of years',
@@ -102,11 +107,18 @@ def draw_graph_function(data):
     fig.write_html('tmp.html', auto_open=True)
 
 
+# 🗃️ output data
+def output_data_function(data):
+    # print the data dictionary in a readable format
+    print('\n#######################################################')
+    for key, value in data.items(): print(key, value)
+    print('#######################################################\n')
+
+
 print('# David Barton (theDavidBarton@AOL.com) © 2023\n# Test Automation Engineer coding challenge - Formula One\n\n[init script...]')
 
 print('* data being collected...')
 data = numbers_with_years_function()
-for key, value in data.items(): print(key, value)
-
+output_data_function(data)
 print('* graph being created...')
 draw_graph_function(data)
