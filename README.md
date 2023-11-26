@@ -2,7 +2,7 @@
 
 A python script to parse and crawl Wikipedia for Formula One-related data using [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/) and [Requests](https://requests.readthedocs.io/en/latest/) libraries.
 
-For the graph generation [Plotly](https://plotly.com/python/) has been used.
+Graph generated with [Plotly](https://plotly.com/python/) library.
 
 
 ## Environment
@@ -87,12 +87,12 @@ The script can be also run with workflow dispatch (manual trigger) from GitHub A
 
 ## + Plotly graph
 
-Run:
+Run on terminal:
 ```
 python driver_number_graph.py
 ```
 
-It will open a webserver locally on http://127.0.0.1:{port}/ from where the graph can be downloaded as a PNG image.
+It will render a `tmp.html` file that automatically opens in the default browser if run locally from where the graph can be downloaded as a PNG image.
 
 ![Graph saved as PNG](newplot.png)
 

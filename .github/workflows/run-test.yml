@@ -21,8 +21,10 @@ jobs:
       - name: chmod +x
         if: runner.os == 'Linux'
         run: chmod +x generate_stat.sh
-      - name: run script
+      - name: run main script 🏎️
         run: python main.py
+      - name: run graph script 📈
+        run: python driver_number_graph.py
       - name: check generated files (Linux)
         if: runner.os == 'Linux'
         run: ls
